@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="bootstrap.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Fight Game</title>
+  </head>
+
+  <body>
+    <div class="actionButtons justify-content-center mt-5 gap-3 d-flex">
+      <button onclick="playerOneKeys()" class="btn btn-primary">
+        Player One Keys
+      </button>
+      <button onclick="playerTwoKeys()" class="btn btn-primary">
+        Player Two Keys
+      </button>
+    </div>
+
+    <div class="playerDiv position-relative px-5">
+      <img
+        id="player1"
+        class="position-absolute mb-2 bottom-0"
+        src="./Assets/Player1/andyStance.gif"
+        alt="Player1"
+        height="300px"
+      />
+      <img
+        id="player2"
+        class="position-absolute mb-2 bottom-0 imgLeft"
+        src="./Assets/Player2/adonStance1.gif"
+        alt="Player1"
+        height="280px"
+      />
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="app.js"></script>
+    <script src="pooper.js"></script>
+    <script src="bootstrapscript.js"></script>
+    <script src="bundle.js"></script>
+  </body>
+</html>
