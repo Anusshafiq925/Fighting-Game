@@ -9,30 +9,217 @@
   </head>
 
   <body>
-    <div class="actionButtons justify-content-center mt-5 gap-3 d-flex">
-      <button onclick="playerOneKeys()" class="btn btn-primary">
-        Player One Keys
-      </button>
-      <button onclick="playerTwoKeys()" class="btn btn-primary">
-        Player Two Keys
-      </button>
+    <div class="container" id="gettingUserInfo">
+      <div class="row justify-content-center align-content-center h-100">
+        <div class="card text-center w-50 h-50 rounded-5">
+          <!-- list  -->
+          <div class="list my-auto" id="list">
+            <ul class="p-0 m-0">
+              <li class="list-group-item">
+                <button
+                  onclick="playersName()"
+                  class="btn fs-1 fw-bold text-white border-bottom"
+                >
+                  Start Game
+                </button>
+              </li>
+              <li class="list-group-item">
+                <button
+                  onclick="controls()"
+                  class="btn fs-1 fw-bold text-white"
+                >
+                  Controls
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Start Game -->
+          <div class="playersName my-auto" id="playersName">
+            <div class="row">
+              <div class="col-12">
+                <h4 class="text-white fw-bold">Enter First Player Name</h4>
+                <input
+                  id="firstName"
+                  type="text"
+                  class="rounded-pill w-50 border-0 px-3"
+                />
+              </div>
+              <div class="col-12">
+                <h4 class="text-white fw-bold">Enter Second Player Name</h4>
+                <input
+                  id="secondName"
+                  class="rounded-pill w-50 border-0 px-3"
+                  type="text"
+                />
+              </div>
+              <div class="button mt-3">
+                <button onclick="submit()" class="btn btn-primary rounded-pill">
+                  Submit
+                </button>
+              </div>
+              <div class="button mt-3">
+                <button
+                  class="btn btn-primary rounded-pill"
+                  onclick="startGame()"
+                >
+                  Back
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- control  -->
+          <div class="controls my-auto" id="controls">
+            <div class="row">
+              <div class="col-12 mb-3">
+                <h1 class="text-white fw-bold">Controls</h1>
+              </div>
+              <div class="col-5">
+                <div class="text-white">
+                  <h3 class="">Player One Keys</h3>
+                  <ul class="ms-0 ps-0 mt-3">
+                    <li class="list-group-item">
+                      Press Left Arrow: for Left Run
+                    </li>
+                    <li class="list-group-item">
+                      Press Right Arrow: for Right Run
+                    </li>
+                    <li class="list-group-item">Press Up Arrow: for Punch</li>
+                    <li class="list-group-item">Press Down Arrow: for Kick</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="vr h-100 bg-white"></div>
+              </div>
+              <div class="col-5">
+                <div class="text-white">
+                  <h3 class="">Player Two Keys</h3>
+                  <ul class="ms-0 ps-0 mt-3">
+                    <li class="list-group-item">Press A: for Left Run</li>
+                    <li class="list-group-item">Press D: for Right Run</li>
+                    <li class="list-group-item">Press W: for Punch</li>
+                    <li class="list-group-item">Press S: for Kick</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="button mt-3">
+                <button
+                  class="btn btn-primary rounded-pill"
+                  onclick="startGame()"
+                >
+                  Back
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="playerDiv position-relative px-5">
-      <img
-        id="player1"
-        class="position-absolute mb-2 bottom-0"
-        src="./Assets/Player1/andyStance.gif"
-        alt="Player1"
-        height="300px"
-      />
-      <img
-        id="player2"
-        class="position-absolute mb-2 bottom-0 imgLeft"
-        src="./Assets/Player2/adonStance1.gif"
-        alt="Player1"
-        height="280px"
-      />
+    <div class="game" id="game">
+      <div class="profileSection w-100 mt-5" id="profileSection">
+        <div class="row px-3 mt-5">
+          <div class="col-5 d-flex">
+            <img
+              class="img-fluid border border-white border-3"
+              src="./Assets/Player1/andyProfile.png"
+              alt=""
+            />
+
+            <div class="w-100">
+              <div
+                class="card w-100 rounded-pill m-2 border-3 bg-success border-success-subtle"
+                style="height: 30px"
+              ></div>
+              <div class="d-flex justify-content-between">
+                <h1 class="text-white mx-2" id="firstPlayerName"></h1>
+
+                <div class="lives d-flex mt-2">
+                  <span
+                    class="card border-3 rounded-circle bg-warning border-secondary"
+                    style="height: 35px; width: 35px"
+                  ></span>
+                  <span
+                    class="card border-3 rounded-circle bg-warning border-secondary mx-1"
+                    style="height: 35px; width: 35px"
+                  ></span>
+                  <span
+                    class="card border-3 rounded-circle bg-warning border-secondary"
+                    style="height: 35px; width: 35px"
+                  ></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <h1 id="time" class="time text-white fw-bolder text-center"></h1>
+          </div>
+          <div class="col-5 d-flex">
+            <div class="w-100 position-relative">
+              <div
+                class="card w-100 rounded-pill my-2 border-3 bg-success border-success-subtle"
+                style="height: 30px"
+              ></div>
+              <div class="d-flex justify-content-between">
+                <h1
+                  class="text-white mx-2 end-0 position-absolute"
+                  id="secondPlayerName"
+                ></h1>
+                <div class="lives d-flex mt-2">
+                  <span
+                    class="card border-3 rounded-circle bg-warning border-secondary"
+                    style="height: 35px; width: 35px"
+                  ></span>
+                  <span
+                    class="card border-3 rounded-circle bg-warning border-secondary mx-1"
+                    style="height: 35px; width: 35px"
+                  ></span>
+                  <span
+                    class="card border-3 rounded-circle bg-warning border-secondary"
+                    style="height: 35px; width: 35px"
+                  ></span>
+                </div>
+              </div>
+            </div>
+
+            <img
+              class="img-fluid border border-white border-3 profile ms-2"
+              src="./Assets/Player2/adonProfile.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        id="actionButtons"
+        class="actionButtons justify-content-between px-3 mt-1 gap-3 d-flex"
+      >
+        <button onclick="playerOneKeys()" class="btn btn-primary">
+          Player One Keys
+        </button>
+        <button onclick="playerTwoKeys()" class="btn btn-primary">
+          Player Two Keys
+        </button>
+      </div>
+
+      <div class="playerDiv position-relative px-5" id="playerDiv">
+        <img
+          id="player1"
+          class="position-absolute mb-2 bottom-0"
+          src="./Assets/Player1/andyStance.gif"
+          alt="Player1"
+          height="300px"
+        />
+        <img
+          id="player2"
+          class="position-absolute mb-2 bottom-0 imgLeft"
+          src="./Assets/Player2/adonStance1.gif"
+          alt="Player1"
+          height="280px"
+        />
+      </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
